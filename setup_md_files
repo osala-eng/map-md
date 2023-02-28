@@ -1,0 +1,4 @@
+#!/bin/bash
+# Findreadme files and place in one common directory in
+# preparation for build
+
