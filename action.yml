@@ -1,0 +1,30 @@
+# Simple workflow for building and deploying markdown files using staticgen
+name: "map readme"
+description: Creates a static website directory structure from readme files
+author: Jashon Osala
+inputs:
+  source:
+    description: "Input directory name"
+    required: false
+    default: "."
+  output:
+    description: "Path of directory to output"
+    required: false
+    default: "markdown"
+  
+  # Generate build files 
+runs:
+    using: composite
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Map readme files
+        shell: bash
+        run: setup_md_files
+        env:
+          IN_DIR: ${{ inputs.source }}
+          OUT_DIR: ${{ inputs.output }}
+
+branding:
+  icon: activity
+  color: blue
